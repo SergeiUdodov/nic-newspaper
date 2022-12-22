@@ -30,12 +30,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-
+	
 	@Override
 	@Transactional
-	public User findByUserName(String userName) {
+	public User findByUserEmail(String userEmail) {
 		// check the database if the user already exists
-		return userDao.findByUserName(userName);
+		return userDao.findByUserEmail(userEmail);
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 		userDao.save(user);
 	}
 
-	@Override
+	/*@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		User user = userDao.findByUserName(userName);
@@ -69,5 +69,5 @@ public class UserServiceImpl implements UserService {
 
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-	}
+	}*/
 }
