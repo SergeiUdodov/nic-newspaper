@@ -13,7 +13,7 @@
 	<artifactId>nic-newspaper</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>nic-newspaper</name>
-	<description>Spring Security and Thymeleaf project for Spring Boot</description>
+	<description>Test project for nic internship</description>
 
 	<properties>
 		<java.version>1.8</java.version>

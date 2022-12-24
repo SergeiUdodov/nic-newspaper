@@ -42,9 +42,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.successHandler(customAuthenticationSuccessHandler)
 				.permitAll()
 			.and()
-			.logout().permitAll() //adding logout support, no coding required(invalidates session and removes cookies, send to login page and append ?logout parameter)
-			/*.and()
-			.exceptionHandling().accessDeniedPage("/access-denied")*/; // we don't use it here because John for example doesn't even see links /leaders and /systems (check home.html)
+			.logout().permitAll(); //adding logout support, no coding required(invalidates session and removes cookies, send to login page and append ?logout parameter)
 		
 	}
 	
