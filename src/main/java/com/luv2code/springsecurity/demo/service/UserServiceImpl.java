@@ -37,6 +37,12 @@ public class UserServiceImpl implements UserService {
 		// check the database if the user already exists
 		return userDao.findByUserName(userName);
 	}
+	
+	@Override
+	public User findByUserEmail(String userEmail) {
+		// check the database if the user already exists
+		return userDao.findByUserEmail(userEmail);
+	}
 
 	@Override
 	@Transactional
@@ -70,4 +76,5 @@ public class UserServiceImpl implements UserService {
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 	}
+
 }

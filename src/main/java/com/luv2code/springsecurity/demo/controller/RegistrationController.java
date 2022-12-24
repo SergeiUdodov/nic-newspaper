@@ -1,7 +1,5 @@
 package com.luv2code.springsecurity.demo.controller;
 
-import java.util.logging.Logger;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +24,6 @@ public class RegistrationController {
 	
     @Autowired
     private UserService userService;
-	
-    private Logger logger = Logger.getLogger(getClass().getName());
     
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -51,8 +47,7 @@ public class RegistrationController {
 				BindingResult theBindingResult, 
 				Model theModel) {
 		
-		String userName = theCrmUser.getUserName();
-		logger.info("Processing registration form for: " + userName);
+		String userEmail = theCrmUser.getEmail();
 		
 		// form validation
 		 if (theBindingResult.hasErrors()){
@@ -60,19 +55,16 @@ public class RegistrationController {
 	        }
 
 		// check the database if user already exists
-        User existing = userService.findByUserName(userName);
+        User existing = userService.findByUserEmail(userEmail);
         if (existing != null){
         	theModel.addAttribute("crmUser", new CrmUser());
-			theModel.addAttribute("registrationError", "User name already exists.");
+			theModel.addAttribute("registrationError", "User email already exists.");
 
-			logger.warning("User name already exists.");
         	return "registration-form";
         }
         
         // create user account        						
         userService.save(theCrmUser);
-        
-        logger.info("Successfully created user: " + userName);
         
         return "registration-confirmation";		
 	}
