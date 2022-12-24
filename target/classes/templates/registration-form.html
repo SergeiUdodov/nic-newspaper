@@ -25,37 +25,41 @@
 
 							<input type="text" th:field="*{userName}" placeholder="Имя аккаунта"/>
 							<ul>
-							  <li th:each="err : ${#fields.errors('userName')}" th:text="'User name ' + ${err}"/>
+							  <li th:each="err : ${#fields.errors('userName')}" th:text="${err}"/>
 							</ul>						
 						
 							<input type="password" th:field="*{password}" placeholder="Пароль"/>
 							<ul>
-							  <li th:each="err : ${#fields.errors('password')}" th:text="'Password ' + ${err}" />
+							  <li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
 							</ul>						
 
 							<input type="password" th:field="*{matchingPassword}" placeholder="Потверждение пароля" class="form-control" th:errorclass="fieldError" />				
 							<ul>
-							  <li th:each="err : ${#fields.errors('matchingPassword')}" th:text="'Password ' + ${err}" />
+							  <li th:each="err : ${#fields.errors('matchingPassword')}" th:text="${err}" />
 							</ul>						
 					
 							<input type="text" th:field="*{firstName}" placeholder="Имя" class="form-control" th:errorclass="fieldError" />
 							<ul>
-							  <li th:each="err : ${#fields.errors('firstName')}" th:text="'First name ' + ${err}" />
+							  <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
 							</ul>						
 
 							<input type="text" th:field="*{lastName}" placeholder="Фамилия" class="form-control" th:errorclass="fieldError" />
 							<ul>
-							  <li th:each="err : ${#fields.errors('lastName')}" th:text="'Last name ' + ${err}" />
+							  <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
 							</ul>						
 
 							<input type="text" th:field="*{email}" placeholder="Email" class="form-control" th:errorclass="fieldError" />
 							<ul>
-							  <li th:each="err : ${#fields.errors('email')}" th:text="'Email ' + ${err}" />
+							  <li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
 							</ul>						
 
 							<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 
 					</form>
+					
+					<div>
+						<p><a th:href="@{/showMyLoginPage}">Назад</a>
+					</div>
 
 </body>
 </html>
