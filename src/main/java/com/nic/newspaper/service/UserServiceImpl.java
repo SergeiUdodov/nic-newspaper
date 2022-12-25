@@ -50,11 +50,10 @@ public class UserServiceImpl implements UserService {
 	public void save(CrmUser crmUser) {
 		User user = new User();
 		 // assign user details to the user object
-		user.setUserName(crmUser.getUserName());
-		user.setPassword(passwordEncoder.encode(crmUser.getPassword()));
 		user.setFirstName(crmUser.getFirstName());
 		user.setLastName(crmUser.getLastName());
 		user.setEmail(crmUser.getEmail());
+		user.setPassword(passwordEncoder.encode(crmUser.getPassword()));
 
 		// give user default role of "employee"
 		user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
@@ -70,7 +69,7 @@ public class UserServiceImpl implements UserService {
 		if (user == null) {
 			throw new UsernameNotFoundException("Неверный email или пароль");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
+		return new org.springframework.security.core.userdetails.User(user.getFirstName(), user.getPassword(),
 				mapRolesToAuthorities(user.getRoles()));
 	}
 

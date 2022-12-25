@@ -23,36 +23,31 @@
 										<span th:text="${registrationError}" class="error"></span><p>
 									</div>
 
-							<input type="text" th:field="*{userName}" placeholder="Имя аккаунта"/>
-							<ul>
-							  <li th:each="err : ${#fields.errors('userName')}" th:text="${err}"/>
-							</ul>						
-						
-							<input type="password" th:field="*{password}" placeholder="Пароль"/>
-							<ul>
-							  <li th:each="err : ${#fields.errors('password')}" th:text="${err}"/>
-							</ul>						
-
-							<input type="password" th:field="*{matchingPassword}" placeholder="Потверждение пароля"/>				
-							<ul>
-							  <li th:each="err : ${#fields.errors('matchingPassword')}" th:text="${err}"/>
-							</ul>						
-					
 							<input type="text" th:field="*{firstName}" placeholder="Имя"/>
 							<ul>
-							  <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"/>
+							  <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" class="error"/>
 							</ul>						
 
 							<input type="text" th:field="*{lastName}" placeholder="Фамилия"/>
 							<ul>
-							  <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}"/>
-							</ul>						
-
+							  <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" class="error"/>
+							</ul>
+							
 							<input type="text" th:field="*{email}" placeholder="Email"/>
 							<ul>
-							  <li th:each="err : ${#fields.errors('email')}" th:text="${err}"/>
+							  <li th:each="err : ${#fields.errors('email')}" th:text="${err}" class="error"/>
 							</ul>						
 
+							<input type="password" th:field="*{password}" placeholder="Пароль"/>
+							<ul>
+							  <li th:each="err : ${#fields.errors('password')}" th:text="${err}" class="error"/>
+							</ul>						
+
+							<input type="password" th:field="*{matchingPassword}" placeholder="Подтверждение пароля"/>				
+							<ul>
+							  <li th:each="err : ${#fields.errors('matchingPassword')}" th:text="${err}" class="error"/>
+							</ul>						
+							
 							<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 
 					</form>

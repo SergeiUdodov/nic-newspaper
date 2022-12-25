@@ -7,21 +7,9 @@ import com.nic.newspaper.validation.FieldMatch;
 import com.nic.newspaper.validation.ValidEmail;
 
 @FieldMatch.List({
-    @FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
+    @FieldMatch(first = "password", second = "matchingPassword", message = "Пароли должны совпадать")
 })
 public class CrmUser {
-
-	@NotNull(message = "Необходимо ввести имя")
-	@Size(min = 1, message = "Необходимо ввести имя")
-	private String userName;
-
-	@NotNull(message = "Необходимо ввести пароль")
-	@Size(min = 1, message = "Необходимо ввести пароль")
-	private String password;
-	
-	@NotNull(message = "Необходимо подтвердить пароль")
-	@Size(min = 1, message = "Необходимо подтвердить пароль")
-	private String matchingPassword;
 
 	@NotNull(message = "Необходимо ввести имя")
 	@Size(min = 1, message = "Необходимо ввести имя")
@@ -35,17 +23,18 @@ public class CrmUser {
 	@NotNull(message = "Необходимо ввести email")
 	@Size(min = 1, message = "Необходимо ввести email")
 	private String email;
+	
+	@NotNull(message = "Необходимо ввести пароль")
+	@Size(min = 1, message = "Необходимо ввести пароль")
+	private String password;
+	
+	@NotNull(message = "Необходимо подтвердить пароль")
+	@Size(min = 1, message = "Необходимо подтвердить пароль")
+	private String matchingPassword;
+
 
 	public CrmUser() {
 
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getPassword() {

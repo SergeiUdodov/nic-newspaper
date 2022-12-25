@@ -12,12 +12,6 @@ public class User {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "username")
-	private String userName;
-
-	@Column(name = "password")
-	private String password;
-
 	@Column(name = "first_name")
 	private String firstName;
 
@@ -26,7 +20,10 @@ public class User {
 
 	@Column(name = "email")
 	private String email;
-
+	
+	@Column(name = "password")
+	private String password;
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "users_roles", 
 	joinColumns = @JoinColumn(name = "user_id"), 
@@ -36,21 +33,19 @@ public class User {
 	public User() {
 	}
 
-	public User(String userName, String password, String firstName, String lastName, String email) {
-		this.userName = userName;
-		this.password = password;
+	public User(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 	}
 
-	public User(String userName, String password, String firstName, String lastName, String email,
-			Collection<Role> roles) {
-		this.userName = userName;
-		this.password = password;
+	public User(String firstName, String lastName, String email, String password,
+			Collection<Role> roles) {	
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 		this.roles = roles;
 	}
 
@@ -60,22 +55,6 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getFirstName() {
@@ -102,6 +81,14 @@ public class User {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public Collection<Role> getRoles() {
 		return roles;
 	}
@@ -112,8 +99,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User{" + "id=" + id + ", userName='" + userName + '\'' + ", password='" + "*********" + '\''
-				+ ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\''
-				+ ", roles=" + roles + '}';
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", roles=" + roles + "]";
 	}
+
 }
