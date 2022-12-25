@@ -40,6 +40,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/showMyLoginPage") //in LoginController
 				.loginProcessingUrl("/authenticateTheUser") //no controller required, spring will handle it for free(submit in login)
 				.successHandler(customAuthenticationSuccessHandler)
+				.usernameParameter("email") //let us log in by email instead of username
 				.permitAll()
 			.and()
 			.logout().permitAll(); //adding logout support, no coding required(invalidates session and removes cookies, send to login page and append ?logout parameter)

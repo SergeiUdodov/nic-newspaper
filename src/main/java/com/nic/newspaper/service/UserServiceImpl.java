@@ -65,10 +65,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		User user = userDao.findByUserName(userName);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userDao.findByUserEmail(email);
 		if (user == null) {
-			throw new UsernameNotFoundException("Invalid username or password.");
+			throw new UsernameNotFoundException("Неверный email или пароль");
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
 				mapRolesToAuthorities(user.getRoles()));
