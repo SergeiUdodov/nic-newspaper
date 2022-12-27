@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>home</title>
+</head>
+
+<body>
+
+<h2>Новости</h2>
+	
+	<table>
+
+		<tr th:each="article: ${articles}">
+			
+			<td th:text=${article.header}>header</td>
+			<td th:text=${article.content}>content</td>
+			<td th:text=${article.date}>date</td>
+			
+				<table>
+
+					<tr th:each="comment: ${comments}">
+						
+						
+						<td th:text=${comment.text}>header</td>
+						<td th:text=${comment.date}>content</td>
+			
+						
+					</tr>
+		
+				</table>
+		</tr>
+		
+	</table>
+ 
+<a th:href="@{/}">Назад</a>
+
+</body>
+
+</html>
+
+
+
+<!-- <% response.sendRedirect("customer/list"); %> -->
+
+
+
+
+

@@ -32,8 +32,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/").hasRole("EMPLOYEE") // any EMPLOYEE has access to / path and all subdirs
-			.antMatchers("/leaders/**").hasRole("MANAGER") // only MANAGER has access to /leaders/ path and all subdirs
+			.antMatchers("/").hasRole("USER") // any EMPLOYEE has access to / path and all subdirs
+			.antMatchers("/leaders/**").hasRole("ADMIN") // only MANAGER has access to /leaders/ path and all subdirs
 			.antMatchers("/systems/**").hasRole("ADMIN") // only ADMIN has access to /systems/ path and all subdirs
 			.and()
 			.formLogin()
