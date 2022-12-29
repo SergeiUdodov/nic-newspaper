@@ -19,7 +19,7 @@
 			
 				<table>
 
-					<tr th:each="comment: ${comments}" th:if="${article.id} == {comment.article_id}">
+					<tr th:each="comment: ${comments}">
 						
 						
 						<td th:text=${comment.text}>header</td>
